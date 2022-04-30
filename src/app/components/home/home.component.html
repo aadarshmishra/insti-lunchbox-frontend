@@ -1,1 +1,68 @@
-<p>home works!</p>
+<header>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+          <div class="container">
+            <a class="navbar-brand" href="#!"><span style="color: #18af98;">Insti</span><span style="color: #000000;">Lunchbox</span></a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                 
+                  <a class="nav-link" href="#!">About Us</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center">
+                <button type="button" class="btn btn-outline me-3" (click)="goToLogin()">
+                  Login
+                </button>
+                <button type="button" class="btn btn-outline me-3" (click)="goToSignup()">
+                  Sign up
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+</header>
+<div style="margin-top: 50px;">
+    <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+    <mdb-carousel-item>
+        <img
+        src="https://www.unitedway.org/i/blog/10.15.19_5_Surprising_Facts_about_Hunger_in_America_Blog-reupload.jpg/@zx_1000@zy_500"
+        class="d-block w-100"
+        alt="..."
+        />
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+        <img
+        src="https://images.yourstory.com/cs/wordpress/2017/09/Feeding-India-1.jpg"
+        class="d-block w-100"
+        alt="..."
+        />
+    </mdb-carousel-item>
+    </mdb-carousel>
+</div>
+<div class="container-fluid" style="margin-top: 25px;">
+<figure class="text-center">
+    <blockquote class="blockquote">
+    <h1 class="display-4">
+        Insti Lunchbox
+    </h1>
+    </blockquote> 
+</figure>
+
+<p class="lead" style="margin-left: auto;">
+    InstiLunchBox is a solution based system which aims at reducing the hunger at ground level and get food from, where it is excess to where it’s a necessity. The main stakeholders are various college/institutes and nearby NGOs. 
+
+Our proposed solution will keep a personalised dashboard at the college food committee/management where they can manage the leftover food at each sitting and the system sends notifications to registered NGOs with respective details.
+
+Following up to this NGO can acknowledge the notification and the leftovers are booked for the particular NGO with an estimated time of availability for pickup by the NGO. 
+
+</p>
+
+</div>
