@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Institute } from 'src/app/interfaces/Institute';
+import { InstituteService } from 'src/app/services/institute.service';
 
 @Component({
   selector: 'app-insti-signup',
@@ -10,7 +11,7 @@ import { Institute } from 'src/app/interfaces/Institute';
 })
 export class InstiSignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private instituteService: InstituteService) { }
 
   ngOnInit(): void {
   }

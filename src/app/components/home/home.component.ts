@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   }
   
   goToSignup =  () => {
-    this.router.navigateByUrl('ngo-signup');
+    this.router.navigateByUrl('insti-signup');
   };
 
   goToLogin =  () => {
