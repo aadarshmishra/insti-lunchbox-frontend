@@ -13,10 +13,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  goToSignup =  () => {
+  goToInstiSignup =  () => {
     this.router.navigateByUrl('insti-signup');
   };
 
+  goToNGOSignup =  () => {
+    this.router.navigateByUrl('insti-signup');
+  };
+  
   goToLogin =  () => {
   this.router.navigateByUrl('login');
   };
