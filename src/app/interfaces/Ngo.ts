@@ -7,5 +7,6 @@ export interface Ngo {
     address: string;
     contact: string;
     email: string;
+    status: number;
     user: User;
 }

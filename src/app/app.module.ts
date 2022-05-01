@@ -24,13 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { InstiSignupComponent } from './components/insti-signup/insti-signup.component';
 import { NgoSignupComponent } from './components/ngo-signup/ngo-signup.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InstiSignupComponent,
-    NgoSignupComponent
+    NgoSignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

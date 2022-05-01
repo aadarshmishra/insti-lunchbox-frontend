@@ -1,0 +1,23 @@
+<div class="container-fluid" style="width: 50%;">
+    <h1 class="display-5" style="text-align: center; margin-top: 10px; margin-bottom: 50px;"> Login </h1>
+    <div class="card text-center">
+        <div class="card-header h4">Login Details</div>
+        <form #loginForm="ngForm" (ngSubmit)="validateInstitute(loginForm)"> 
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="email" type="email" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">Email Address</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="password" type="password" class="form-control" required />
+                <label mdbLabel class="form-label">Password</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <button [disabled]="loginForm.invalid"  mdbInput type="submit" class="btn btn-primary">Login</button>
+            </mdb-form-control>
+        </form>
+        <div class="card-footer text-muted">InstiLunchbox® 2022 </div>
+    </div>
+</div>
+ 
