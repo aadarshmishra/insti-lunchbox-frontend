@@ -1,0 +1,47 @@
+<div class="container-fluid" style="width: 50%;">
+    <h1 class="display-5" style="text-align: center; margin-top: 10px; margin-bottom: 50px;"> Institute Signup </h1>
+    <div class="card text-center">
+        <div class="card-header h4">Institute Details</div>
+        <form #signupForm="ngForm" (ngSubmit)="onAddInstitute(signupForm)">
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="name" type="text" id="typeTextName" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">Institute Name</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="address" type="text" id="typeTextAddress" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextAddress">Institute Address</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="contact" type="text" id="typeTextConNumber" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextConNumber">Contact Number</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="email" type="email" id="typeEmail" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeEmail">Email Address</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="password" type="password" class="form-control" required />
+                <label mdbLabel class="form-label">Password</label>
+            </mdb-form-control>
+
+            <!-- <div class="row form-field">
+                <div class="col-4">
+                    <label class="form-label" for="customFile">Institute Certificate</label>
+                    
+                </div>
+                <div class="col">
+                    <input ngModel name="certificate" type="file" class="form-control" id="customFile" />
+                </div>
+            </div> -->
+
+            <mdb-form-control class="form-field">
+                <button [disabled]="signupForm.invalid"  mdbInput type="submit" class="btn btn-primary">Register</button>
+            </mdb-form-control>
+        </form>
+        <div class="card-footer text-muted">InstiLunchbox® 2022 </div>
+    </div>
+</div>
