@@ -1,16 +1,21 @@
 <div class="container-fluid" style="width: 50%;">
-    <h1 class="display-5" style="text-align: center; margin-top: 10px; margin-bottom: 50px;"> Institute Signup </h1>
+    <h1 class="display-5" style="text-align: center; margin-top: 10px; margin-bottom: 50px;"> NGO Signup </h1>
     <div class="card text-center">
-        <div class="card-header h4">Institute Details</div>
-        <form #signupForm="ngForm" (ngSubmit)="onAddInstitute(signupForm)">
+        <div class="card-header h4">NGO Details</div>
+        <form #ngoSignupForm="ngForm" (ngSubmit)="onAddNGO(ngoSignupForm)">
             <mdb-form-control class="form-field">
                 <input mdbInput ngModel name="name" type="text" id="typeTextName" class="form-control" required />
-                <label mdbLabel class="form-label" for="typeTextName">Institute Name</label>
+                <label mdbLabel class="form-label" for="typeTextName">NGO Name</label>
+            </mdb-form-control>
+            
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="ngoId" type="text" id="typeTextName" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">NGO Registration ID</label>
             </mdb-form-control>
 
             <mdb-form-control class="form-field">
                 <input mdbInput ngModel name="address" type="text" id="typeTextAddress" class="form-control" required />
-                <label mdbLabel class="form-label" for="typeTextAddress">Institute Address</label>
+                <label mdbLabel class="form-label" for="typeTextAddress">NGO Address</label>
             </mdb-form-control>
 
             <mdb-form-control class="form-field">
@@ -39,7 +44,7 @@
             </div> -->
 
             <mdb-form-control class="form-field">
-                <button [disabled]="signupForm.invalid"  mdbInput type="submit" class="btn btn-primary">Register</button>
+                <button [disabled]="ngoSignupForm.invalid"  mdbInput type="submit" class="btn btn-primary">Register</button>
             </mdb-form-control>
         </form>
         <div class="card-footer text-muted">InstiLunchbox® 2022 </div>
