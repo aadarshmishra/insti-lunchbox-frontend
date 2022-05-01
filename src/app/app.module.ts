@@ -23,12 +23,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { InstiSignupComponent } from './components/insti-signup/insti-signup.component';
+import { NgoSignupComponent } from './components/ngo-signup/ngo-signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InstiSignupComponent
+    InstiSignupComponent,
+    NgoSignupComponent
   ],
   imports: [
     BrowserModule,
