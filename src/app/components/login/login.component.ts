@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
     this.userService.getUserByEmail(loginForm.value.email).subscribe(
       (response: User) => {
         if (loginForm.value.password === response.password) {
+          if (response.role === "admin") {
+            console.log("admin logged in.");
+          }
           if (response.role === "institute") {
             this.instiService.getInstituteByEmail(loginForm.value.email).subscribe(
               (response:Institute) => {
@@ -39,7 +42,7 @@ export class LoginComponent implements OnInit {
                 }
                 else if (response.status === 1) {
                   // this.router.navigateByUrl('insti_dashboard');
-                  console.log("logged in");
+                  console.log("institute logged in");
                 }
               },
               (error: HttpErrorResponse) => {
@@ -58,7 +61,7 @@ export class LoginComponent implements OnInit {
                 }
                 else if (response.status === 1) {
                   // this.router.navigateByUrl('insti_dashboard');
-                  console.log("logged in");
+                  console.log("ngo logged in");
                 }
               },
               (error: HttpErrorResponse) => {
