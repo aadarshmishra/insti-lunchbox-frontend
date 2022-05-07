@@ -25,6 +25,8 @@ import { HomeComponent } from './components/home/home.component';
 import { InstiSignupComponent } from './components/insti-signup/insti-signup.component';
 import { NgoSignupComponent } from './components/ngo-signup/ngo-signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { InstiDashboardComponent } from './components/insti-dashboard/insti-dashboard.component';
+import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     InstiSignupComponent,
     NgoSignupComponent,
-    LoginComponent
+    LoginComponent,
+    InstiDashboardComponent,
+    AddLunchboxComponent
   ],
   imports: [
     BrowserModule,
