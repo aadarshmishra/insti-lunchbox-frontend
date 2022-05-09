@@ -16,7 +16,7 @@ export class InstituteService {
     return this.http.post<Institute>(`${this.apiServerUrl}/api/institute`,institute);
   }
   
-  public getInstituteByEmail(email: string): Observable<Institute> {
+  public getInstituteByEmail(email: string) {
     return this.http.get<Institute>(`${this.apiServerUrl}/api/institute/${email}`)
   }
 }

@@ -1,0 +1,69 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#!"><span style="color: #18af98;">Insti</span><span
+                style="color: #000000;">Lunchbox</span></a>
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" (click)="basicNavbar.toggle()" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse #basicNavbar="mdbCollapse">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="" (click)="$event.preventDefault();goToDashboard();">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">Add Lunchbox</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Sample</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+<div class="container-fluid" style="width: 50%;">
+    <div class="card text-center mt-5">
+        <div class="card-header h5">Add Food items.</div>
+        <form #addFooditemForm="ngForm" (ngSubmit)="addFooditem(addFooditemForm)">
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="fname" type="text" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">Food Name</label>
+            </mdb-form-control>
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="fqty" type="text" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">Food Quantity</label>
+            </mdb-form-control>
+            <mdb-form-control class="form-field">
+                <input mdbInput ngModel name="fremark" type="text" class="form-control" required />
+                <label mdbLabel class="form-label" for="typeTextName">Any other remarks</label>
+            </mdb-form-control>
+            <div class="row form-field">
+                <div class="col">
+                    <mdb-form-control class="form-field">
+                        <button [disabled]="addFooditemForm.invalid" mdbInput type="submit"
+                            class="btn btn-primary">Add</button>
+                    </mdb-form-control>
+                </div>
+                <div class="col">
+                    <mdb-form-control class="form-field">
+                        <button [disabled]="addFooditemForm.invalid" mdbInput type="reset"
+                            class="btn btn-primary">Reset</button>
+                    </mdb-form-control>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
