@@ -61,7 +61,7 @@
                     <td>{{fooditem.fremark}}</td>
                     <td>
                         <p *ngIf="fooditem.status === 0">The item has not been picked up yet.</p> 
-                        <p *ngIf="fooditem.status === 1">The item has been confirmed for pickup by <strong>{{ngoPicked.name}}</strong></p>    
+                        <p *ngIf="fooditem.status === 1">The item has been confirmed for pickup by <strong>{{fooditem.ngoname}}</strong></p>    
                     </td>
                     <!-- <td>
                         <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="getAllFooditem()">

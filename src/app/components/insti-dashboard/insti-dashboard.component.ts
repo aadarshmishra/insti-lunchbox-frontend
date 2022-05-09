@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Fooditem } from 'src/app/interfaces/fooditem';
-import { Lunchbox } from 'src/app/interfaces/lunchbox';
+import { Fooditem } from 'src/app/interfaces/Fooditem';
+import { Lunchbox } from 'src/app/interfaces/Lunchbox';
 import { Ngo } from 'src/app/interfaces/Ngo';
 import { FooditemService } from 'src/app/services/fooditem.service';
 import { InstituteService } from 'src/app/services/institute.service';
@@ -24,9 +24,9 @@ export class InstiDashboardComponent implements OnInit {
 
   fooditem: Fooditem = {} as Fooditem;
   lunchbox: Lunchbox = {} as Lunchbox;
-  ngoPicked: Ngo = {} as Ngo;
   
   fooditems = [this.fooditem];
+  ngonames = [];
   
   ngOnInit(): void {
     this.getAllFooditem();
@@ -40,19 +40,19 @@ export class InstiDashboardComponent implements OnInit {
     this.fooditemService.getAllFoodItem().subscribe({
       next: (response: any) => {
         console.log(response);
-        for (var res of response) {
-          
-        }
-        this.ngoService.getNGOByEmail(response).subscribe({
-          next: (response: Ngo) => {
-            this.ngoPicked = response;
-            console.log(this.ngoPicked);
+        this.fooditems = response;
+        this.fooditemService.getNGONames().subscribe({
+          next: (response: any) => {
+            this.ngonames = response;
+            for (let i = 0 ; i < this.fooditems.length ; i++) {
+              this.fooditems[i].ngoname = this.ngonames[i];
+            }
+            console.log(this.ngonames);
           },
           error: (error: HttpErrorResponse) => {
-            console.log(error.error.message);
+            alert(error.error.message);
           }
-        })
-        this.fooditems = response;
+        });
       },
       error: (error: HttpErrorResponse) => { }
     });

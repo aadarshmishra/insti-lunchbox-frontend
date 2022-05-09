@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Fooditem } from '../interfaces/fooditem';
+import { Fooditem } from '../interfaces/Fooditem';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +18,9 @@ export class FooditemService {
   
   public getAllFoodItem() : Observable<any> {
     return this.http.get(`${this.apiServerUrl}/api/fooditem/get`);
+  }
+  
+  public getNGONames() : Observable<any> {
+    return this.http.get(`${this.apiServerUrl}/api/fooditem/getNGONames`);
   }
 }
