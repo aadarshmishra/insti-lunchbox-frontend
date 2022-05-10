@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AdminNgoUsers } from 'src/app/interfaces/admin-ngo-users';
+import { User } from 'src/app/interfaces/User';
+import { AdminNgoUsersService } from 'src/app/services/admin-ngo-users.service';
 
 @Component({
   selector: 'app-admin-ngo-users',

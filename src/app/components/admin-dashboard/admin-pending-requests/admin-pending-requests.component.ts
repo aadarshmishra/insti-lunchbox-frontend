@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminInstituteUsers } from 'src/app/interfaces/admin-institute-users';
 import { AdminNgoUsers } from 'src/app/interfaces/admin-ngo-users';
 import { AdminInstituteUsersService } from 'src/app/services/admin-institute-users.service';
+import { AdminNgoUsersService } from 'src/app/services/admin-ngo-users.service';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({

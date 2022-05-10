@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AdminInstituteUsers } from 'src/app/interfaces/admin-institute-users';
+import { User } from 'src/app/interfaces/User';
+import { AdminInstituteUsersService } from 'src/app/services/admin-institute-users.service';
 
 @Component({
   selector: 'app-admin-institute-users',

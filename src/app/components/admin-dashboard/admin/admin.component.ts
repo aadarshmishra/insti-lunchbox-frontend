@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AdminInstituteUsersService } from 'src/app/services/admin-institute-users.service';
+import { AdminNgoUsersService } from 'src/app/services/admin-ngo-users.service';
 
 @Component({
   selector: 'app-admin',
