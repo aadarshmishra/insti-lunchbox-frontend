@@ -29,6 +29,7 @@ import { InstiDashboardComponent } from './components/insti-dashboard/insti-dash
 import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
+import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdminComponent } from './components/admin-dashboard/admin/admin.compone
     InstiDashboardComponent,
     AddLunchboxComponent,
     AdminDashboardComponent,
-    AdminComponent
+    AdminComponent,
+    AdminInstituteUsersComponent
   ],
   imports: [
     BrowserModule,
