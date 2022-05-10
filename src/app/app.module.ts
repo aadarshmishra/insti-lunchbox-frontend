@@ -30,6 +30,7 @@ import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.com
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
 import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
+import { AdminNgoUsersComponent } from './components/admin-dashboard/admin-ngo-users/admin-ngo-users.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin
     AddLunchboxComponent,
     AdminDashboardComponent,
     AdminComponent,
-    AdminInstituteUsersComponent
+    AdminInstituteUsersComponent,
+    AdminNgoUsersComponent
   ],
   imports: [
     BrowserModule,
