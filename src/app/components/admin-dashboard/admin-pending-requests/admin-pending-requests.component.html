@@ -1,1 +1,35 @@
-<p>admin-pending-requests works!</p>
+<div class="container my-5">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Pending Requests : {{users.length}}</h5>
+  
+      </div>
+    </div>
+    <div *ngFor='let user of users; let i = index' class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Request : {{i + 1}}</h5>
+        <p class="card-text" *ngIf="user.ngoId; else ngo">
+          Role : {{user.user.role}}<br>
+          Name : {{user.name}} <br>
+          Contact : {{user.contact}} <br>
+          NGO ID : {{user.ngoId}}
+        </p>
+        <ng-template #ngo>
+          <p class="card-text">
+            Role : {{user.user.role}}<br>
+            Name : {{user.name}} <br>
+            Contact : {{user.contact}} <br>
+          </p>
+        </ng-template>
+        <!--      <p class="card-text">-->
+        <!--        -->
+        <!--      </p>-->
+        <div class="d-grid gap-2 d-md-block">
+          <button (click) = "onClick(1, user.id, user.ngoId)" class="btn btn-success mx-1" type="button">Approve</button>
+          <button (click) = "onClick(2, user.id, user.ngoId)" class="btn btn-success mx-1" type="button">Reject</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
