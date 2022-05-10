@@ -27,6 +27,11 @@ import { NgoSignupComponent } from './components/ngo-signup/ngo-signup.component
 import { LoginComponent } from './components/login/login.component';
 import { InstiDashboardComponent } from './components/insti-dashboard/insti-dashboard.component';
 import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
+import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
+import { AdminNgoUsersComponent } from './components/admin-dashboard/admin-ngo-users/admin-ngo-users.component';
+import { AdminPendingRequestsComponent } from './components/admin-dashboard/admin-pending-requests/admin-pending-requests.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.com
     NgoSignupComponent,
     LoginComponent,
     InstiDashboardComponent,
-    AddLunchboxComponent
+    AddLunchboxComponent,
+    AdminDashboardComponent,
+    AdminComponent,
+    AdminInstituteUsersComponent,
+    AdminNgoUsersComponent,
+    AdminPendingRequestsComponent
   ],
   imports: [
     BrowserModule,
