@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AdminInstituteUsers } from 'src/app/interfaces/admin-institute-users';
+import { AdminNgoUsers } from 'src/app/interfaces/admin-ngo-users';
+import { AdminInstituteUsersService } from 'src/app/services/admin-institute-users.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-pending-requests',
