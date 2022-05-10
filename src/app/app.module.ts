@@ -31,6 +31,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
 import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
 import { AdminNgoUsersComponent } from './components/admin-dashboard/admin-ngo-users/admin-ngo-users.component';
+import { AdminPendingRequestsComponent } from './components/admin-dashboard/admin-pending-requests/admin-pending-requests.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AdminNgoUsersComponent } from './components/admin-dashboard/admin-ngo-u
     AdminDashboardComponent,
     AdminComponent,
     AdminInstituteUsersComponent,
-    AdminNgoUsersComponent
+    AdminNgoUsersComponent,
+    AdminPendingRequestsComponent
   ],
   imports: [
     BrowserModule,
