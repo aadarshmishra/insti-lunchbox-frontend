@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Institute } from '../interfaces/Institute';
@@ -11,9 +11,14 @@ export class InstituteService {
   constructor(private http : HttpClient) { } 
   
   private apiServerUrl = "http://localhost:8080";
+  private requestHeaders = new HttpHeaders(
+    {
+      "No-Auth":"True"
+    }
+  )
 
   public addInstitute(institute: Institute): Observable<Institute> {
-    return this.http.post<Institute>(`${this.apiServerUrl}/api/institute/add`,institute);
+    return this.http.post<Institute>(`${this.apiServerUrl}/api/institute/add`,institute, {headers:this.requestHeaders});
   }
   
   public getInstituteByEmail(email: string) {
