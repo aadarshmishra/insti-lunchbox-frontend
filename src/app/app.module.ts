@@ -20,13 +20,16 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { InstiSignupComponent } from './components/insti-signup/insti-signup.component';
 import { NgoSignupComponent } from './components/ngo-signup/ngo-signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { InstiDashboardComponent } from './components/insti-dashboard/insti-dashboard.component';
 import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.component';
+import { NgoDashboardComponent } from './components/ngo-dashboard/ngo-dashboard.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { UserAuthService } from './services/user-auth.service';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
 import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
@@ -42,6 +45,7 @@ import { AdminPendingRequestsComponent } from './components/admin-dashboard/admi
     LoginComponent,
     InstiDashboardComponent,
     AddLunchboxComponent,
+    NgoDashboardComponent,
     AdminDashboardComponent,
     AdminComponent,
     AdminInstituteUsersComponent,
@@ -70,7 +74,11 @@ import { AdminPendingRequestsComponent } from './components/admin-dashboard/admi
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ import { Ngo } from 'src/app/interfaces/Ngo';
 import { User } from 'src/app/interfaces/User';
 import { InstituteService } from 'src/app/services/institute.service';
 import { NgoService } from 'src/app/services/ngo.service';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,65 +20,67 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService,
     private router: Router,
     private instiService: InstituteService,
-    private ngoService: NgoService) { }
+    private ngoService: NgoService,
+    private userAuthService : UserAuthService) { }
 
   ngOnInit(): void {
   }
 
   public validateInstitute(loginForm: NgForm): void {
-    this.userService.getUserByEmail(loginForm.value.email).subscribe(
-      (response: User) => {
-        if (loginForm.value.password === response.password) {
-          if (response.role === "admin") {
-            console.log("admin logged in.");
-          }
-          if (response.role === "institute") {
-            this.instiService.getInstituteByEmail(loginForm.value.email).subscribe(
-              (response:Institute) => {
-                if (response.status === 0) {
-                  alert("You're not authorized by Admin yet.")
-                }
-                else if (response.status === 2) {
-                  alert("You're registration has been denied. Kindly contact admin.")
-                }
-                else if (response.status === 1) {
-                  // this.router.navigateByUrl('insti_dashboard');
-                  console.log("institute logged in");
-                }
-              },
-              (error: HttpErrorResponse) => {
-                alert(error.error.message);
-              }
-            );
-          }
-          else if (response.role === 'ngo') {
-            this.ngoService.getNGOByEmail(loginForm.value.email).subscribe(
-              (response: Ngo) => {
-                if (response.status === 0) {
-                  alert("You're not authorized by Admin yet.")
-                }
-                else if (response.status === 2) {
-                  alert("You're registration has been denied. Kindly contact admin.")
-                }
-                else if (response.status === 1) {
-                  // this.router.navigateByUrl('insti_dashboard');
-                  console.log("ngo logged in");
-                }
-              },
-              (error: HttpErrorResponse) => {
-                alert(error.error.message);
-              }
-            );
-          }
+    this.userService.login(loginForm.value).subscribe(
+      (response: any) => {
+        this.userAuthService.setEmail(response.user.email);
+        this.userAuthService.setRole(response.user.role);
+        this.userAuthService.setToken(response.jwttoken);
+        console.log(response);
+        if (response.user.role === "admin") {
+          console.log("admin logged in.");
+          this.router.navigateByUrl('admin-dashboard');
         }
-        else {
-          alert("Wrong Password.")
+        if (response.user.role === "institute") {
+          this.instiService.getInstituteByEmail(loginForm.value.email).subscribe(
+            (response: Institute) => {
+              if (response.status === 0) {
+                alert("You're not authorized by Admin yet.")
+              }
+              else if (response.status === 2) {
+                alert("You're registration has been denied. Kindly contact admin.")
+              }
+              else if (response.status === 1) {
+                this.router.navigateByUrl('insti-dashboard');
+                console.log("institute logged in");
+              }
+            },
+            (error: HttpErrorResponse) => {
+              console.log(error);
+              alert(error.error.message);
+            }
+          );
+        }
+        else if (response.user.role === 'ngo') {
+          this.ngoService.getNGOByEmail(loginForm.value.email).subscribe(
+            (response: Ngo) => {
+              if (response.status === 0) {
+                alert("You're not authorized by Admin yet.")
+              }
+              else if (response.status === 2) {
+                alert("You're registration has been denied. Kindly contact admin.")
+              }
+              else if (response.status === 1) {
+                this.router.navigateByUrl('ngo-dashboard');
+                console.log("ngo logged in");
+              }
+            },
+            (error: HttpErrorResponse) => {
+              alert(error.error.message);
+            }
+          );
         }
         loginForm.reset();
       },
       (error: HttpErrorResponse) => {
-        loginForm.reset;
-        alert(error.error.message);
+        alert("Error Logging in. Please try again.");
+        loginForm.reset();
       }
     );
   }
