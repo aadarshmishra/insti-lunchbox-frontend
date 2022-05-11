@@ -1,0 +1,56 @@
+<div class="card row-offcanvas my-5">
+    <h5 class="card-header">Current Stats</h5>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-inverse card-success">
+            <div routerLink="../admin-institute-users" class="card-block bg-success">
+              <div class="rotate">
+                <i class="fa fa-user fa-5x"></i>
+              </div>
+              <h3 class="text-uppercase">Insti Users</h3>
+              <h1 class="display-2">{{instiSize}}</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-inverse card-success">
+            <div routerLink="../admin-ngo-users" class="card-block bg-info">
+              <div class="rotate">
+                <i class="fa fa-user fa-5x"></i>
+              </div>
+              <h3 class="text-uppercase">NGO Users</h3>
+              <h1 class="display-2">{{ngoSize}}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--<div class="container my-5">-->
+  <!--  <div class="card mb-3">-->
+  <!--    <div class="card-body">-->
+  <!--      <h5 class="card-title">Pending Requests : {{users.length}}</h5>-->
+  
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <div *ngFor='let user of users; let i = index' class="card mb-3">-->
+  <!--    <div class="card-body">-->
+  <!--      <h5 class="card-title">Request : {{i + 1}}</h5>-->
+  <!--      <p class="card-text">-->
+  <!--        Institute User : {{user.name}} <br>-->
+  <!--        Contact : {{user.contact}}-->
+  <!--      </p>-->
+  <!--&lt;!&ndash;      <p class="card-text">&ndash;&gt;-->
+  <!--&lt;!&ndash;        &ndash;&gt;-->
+  <!--&lt;!&ndash;      </p>&ndash;&gt;-->
+  <!--      <div class="d-grid gap-2 d-md-block">-->
+  <!--        <button (click) = "onClick(1, user.id)" class="btn btn-success mx-1" type="button">Approve</button>-->
+  <!--        <button (click) = "onClick(2, user.id)" class="btn btn-success mx-1" type="button">Reject</button>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  
+  

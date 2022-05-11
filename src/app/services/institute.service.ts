@@ -13,7 +13,7 @@ export class InstituteService {
   private apiServerUrl = "http://localhost:8080";
 
   public addInstitute(institute: Institute): Observable<Institute> {
-    return this.http.post<Institute>(`${this.apiServerUrl}/api/institute`,institute);
+    return this.http.post<Institute>(`${this.apiServerUrl}/api/institute/add`,institute);
   }
   
   public getInstituteByEmail(email: string) {

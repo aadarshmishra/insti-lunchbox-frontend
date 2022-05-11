@@ -1,0 +1,123 @@
+<!-- Navbar-->
+<div class = "row">
+    <div id="page" class="col-sm-2 page-wrapper chiller-theme">
+      <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <div class="d-flex">
+              <!-- Brand -->
+              <!-- <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                <img
+                  src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.webp"
+                  height="20"
+                  alt=""
+                  loading="lazy"
+                  style="margin-top: 2px;"
+                />
+              </a> -->
+              <a class="navbar-brand" href="#!"><span style="color: #18af98;">Insti</span><span
+                style="color: #ffffff;">Lunchbox</span></a>
+              <div id="mySidebar"  (click)="closeNav()">
+                <a  class="closebtn">×</a>
+              </div>
+            </div>
+  
+          </div>
+          <div class="sidebar-header">
+            <div class="user-pic">
+              <img
+                src="https://mdbootstrap.com/img/new/avatars/1.webp"
+                class="rounded-circle"
+                height="22"
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <div class="user-info">
+            <span class="user-name">Ehraz
+              <strong>Hasan</strong>
+            </span>
+              <span class="user-role">Administrator</span>
+              <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Online</span>
+            </span>
+            </div>
+          </div>
+       
+          <!-- sidebar-search  -->
+          <div class="sidebar-menu">
+            <ul>
+              <li class="header-menu">
+                <span>General</span>
+              </li>
+              <li class="sidebar-dropdown">
+                <a routerLink="admin">
+                  <i class="fa fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                
+                </a>
+               
+              </li>
+              <li class="sidebar-dropdown">
+                <a routerLink="admin-pending-requests">
+                  <i class="fa fa-rocket"></i>
+                  <span>Pending Requests</span>
+  
+                </a>
+              </li>
+              <li class="sidebar-dropdown">
+                <a routerLink="admin-institute-users">
+                  <i class="fa fa-user"></i>
+                  <span>Institute Users</span>
+                </a>
+                
+              </li>
+              <li class="sidebar-dropdown">
+                <a routerLink="admin-ngo-users">
+                  <i class="fa fa-user"></i>
+                  <span>NGO users</span>
+                </a>
+                
+              </li>
+             
+            </ul>
+          </div>
+          
+        </div>
+       
+      </nav>
+    </div>
+    <div class="col-sm-10">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid justify-content-between">
+          <!-- Left elements -->
+          <div class="d-flex">
+            <button class="openbtn" (click) ="openNav()">☰</button>
+          </div>
+         
+          <!-- Right elements -->
+          <ul class="navbar-nav flex-row">
+            <li class="nav-item me-3 me-lg-1">
+              <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+                <img
+                  src="https://mdbootstrap.com/img/new/avatars/1.webp"
+                  class="rounded-circle"
+                  height="22"
+                  alt=""
+                  loading="lazy"
+                />
+                <strong class="d-none d-sm-block ms-1">LogOut</strong>
+              </a>
+            </li>
+          </ul>
+      
+          <!-- Right elements -->
+        </div>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- Navbar -->
+  
+  

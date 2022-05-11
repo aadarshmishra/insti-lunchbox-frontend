@@ -30,6 +30,11 @@ import { AddLunchboxComponent } from './components/add-lunchbox/add-lunchbox.com
 import { NgoDashboardComponent } from './components/ngo-dashboard/ngo-dashboard.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserAuthService } from './services/user-auth.service';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminComponent } from './components/admin-dashboard/admin/admin.component';
+import { AdminInstituteUsersComponent } from './components/admin-dashboard/admin-institute-users/admin-institute-users.component';
+import { AdminNgoUsersComponent } from './components/admin-dashboard/admin-ngo-users/admin-ngo-users.component';
+import { AdminPendingRequestsComponent } from './components/admin-dashboard/admin-pending-requests/admin-pending-requests.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { UserAuthService } from './services/user-auth.service';
     LoginComponent,
     InstiDashboardComponent,
     AddLunchboxComponent,
-    NgoDashboardComponent
+    NgoDashboardComponent,
+    AdminDashboardComponent,
+    AdminComponent,
+    AdminInstituteUsersComponent,
+    AdminNgoUsersComponent,
+    AdminPendingRequestsComponent
   ],
   imports: [
     BrowserModule,
