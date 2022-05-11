@@ -7,6 +7,7 @@ import { FooditemService } from 'src/app/services/fooditem.service';
 import { InstituteService } from 'src/app/services/institute.service';
 import { LunchboxService } from 'src/app/services/lunchbox.service';
 import { NgoService } from 'src/app/services/ngo.service';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'app-ngo-dashboard',
@@ -19,14 +20,15 @@ export class NgoDashboardComponent implements OnInit {
     private instituteService: InstituteService,
     private lunchboxService: LunchboxService,
     private ngoService: NgoService,
-    private router: Router) { }
+    private router: Router,
+    private userAuthService: UserAuthService) { }
 
   fooditem: Fooditem = {} as Fooditem;
   lunchbox: Lunchbox = {} as Lunchbox;
 
   fooditems = [this.fooditem];
   ngonames = [];
-
+  
   ngOnInit(): void {
     this.getAllFooditem();
   }
@@ -41,8 +43,11 @@ export class NgoDashboardComponent implements OnInit {
             this.ngonames = response;
             for (let i = 0; i < this.fooditems.length; i++) {
               this.fooditems[i].ngoname = this.ngonames[i];
+              if (this.fooditems[i].status === 0) this.fooditems[i].confirm = false;
+              else { this.fooditems[i].confirm = true; }
             }
             console.log(this.ngonames);
+            console.log(this.fooditems);
           },
           error: (error: HttpErrorResponse) => {
             alert(error.error.message);
@@ -54,14 +59,20 @@ export class NgoDashboardComponent implements OnInit {
   }
   
   public confirmPickup(fooditem : Fooditem){
-    fooditem.ngoemail = "eh@gmail.com";
+    fooditem.ngoemail = this.userAuthService.getEmail();
     fooditem.status = 1;
     this.fooditemService.updateFooditem(fooditem).subscribe({
       next:(response: Fooditem) =>{
         console.log(response);
+        window.location.reload();
       },
       error:(error: HttpErrorResponse) => {}
     });
+  }
+  
+  public logout() {
+    this.userAuthService.clear();
+    this.router.navigateByUrl("login");
   }
 
 }

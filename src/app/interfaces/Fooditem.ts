@@ -8,5 +8,6 @@ export interface Fooditem{
     status: number;
     ngoemail: string;
     ngoname: string;
+    confirm: boolean;
     lunchbox: Lunchbox;
 }

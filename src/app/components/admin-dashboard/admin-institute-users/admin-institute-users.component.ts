@@ -105,13 +105,13 @@ export class AdminInstituteUsersComponent implements OnInit {
         response => {
           console.log(response);
           updateInstiUser.reset();
+          this.reload();
         },
         (error: HttpErrorResponse) => {
           console.log(error.message);
           updateInstiUser.reset();
         }
       );
-      this.reload();
     }
   }
 
@@ -121,13 +121,12 @@ export class AdminInstituteUsersComponent implements OnInit {
     this.serviceInstiUsrs.deleteInstiUser(deleteInstiUser.value.id).subscribe(
       response => {
         console.log(response);
+        this.reload();
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
       }
     );
-
-    this.reload();
   }
 
   reload() {

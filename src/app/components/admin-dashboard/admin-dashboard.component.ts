@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Route, Router} from "@angular/router";
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -8,7 +9,7 @@ import {Route, Router} from "@angular/router";
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private userAuthService: UserAuthService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +29,9 @@ export class AdminDashboardComponent implements OnInit {
     document.getElementById("sidebar")!.style.width = "0";
     document.getElementById("mySidebar")!.style.width= "0";
   }
-
+  
+  public logout() {
+    this.userAuthService.clear();
+    this.router.navigateByUrl("login");
+  }
 }

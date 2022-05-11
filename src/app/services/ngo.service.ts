@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Ngo} from '../interfaces/Ngo'
@@ -9,11 +9,16 @@ import {Ngo} from '../interfaces/Ngo'
 export class NgoService {
 
   constructor(private http : HttpClient) { }
+  private requestHeaders = new HttpHeaders(
+    {
+      "No-Auth":"True"
+    }
+  )
   
   private apiServerUrl = "http://localhost:8080";
   
   public addNGO(ngo: Ngo): Observable<Ngo> {
-    return this.http.post<Ngo>(`${this.apiServerUrl}/api/ngo/add`,ngo);
+    return this.http.post<Ngo>(`${this.apiServerUrl}/api/ngo/add`,ngo, {headers:this.requestHeaders});
   }
   
   public getNGOByEmail(email: string): Observable<Ngo> {

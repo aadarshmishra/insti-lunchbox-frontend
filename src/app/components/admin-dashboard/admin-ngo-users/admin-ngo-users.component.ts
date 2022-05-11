@@ -67,13 +67,13 @@ export class AdminNgoUsersComponent implements OnInit {
         response => {
           console.log(response);
           updateNgoUser.reset();
+          this.reload();
         },
         (error: HttpErrorResponse) => {
           console.log(error.message);
           updateNgoUser.reset();
         }
       );
-      this.reload();
     }
   }
 
@@ -82,13 +82,12 @@ export class AdminNgoUsersComponent implements OnInit {
     this.serviceNgoUsers.deleteNgoUser(deleteNgoUser.value.id).subscribe(
       response => {
         console.log(response);
+        this.reload();
       },
       (error : HttpErrorResponse) => {
         console.log(error.message);
       }
     );
-
-    this.reload();
   }
 
   reload() {
@@ -111,21 +110,19 @@ export class AdminNgoUsersComponent implements OnInit {
       this.ngoUser.ngoId = addNgoUser.value.ngoId1;
       this.user.email = addNgoUser.value.email;
       this.user.password = addNgoUser.value.password;
-      this.user.role = "ngo";
       this.ngoUser.user = this.user;
 
       this.serviceNgoUsers.addNgoUser(this.ngoUser).subscribe(
         response => {
           console.log(response);
           addNgoUser.reset();
+          window.location.reload();
         },
         (error: HttpErrorResponse) => {
           console.log(error.message);
           addNgoUser.reset();
         }
       );
-
-      window.location.reload();
     }
   }
 

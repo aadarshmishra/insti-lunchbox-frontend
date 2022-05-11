@@ -20,10 +20,16 @@
                     <a class="nav-link active">Dashboard</a>
                 </li>
                 <div class="d-flex align-items-center">
-                    <
                 </div>
             </ul>
             <!-- Left links -->
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="" (click)="$event.preventDefault();logout();">Logout</a>
+                </li>
+            </ul>
+            <!-- Right links -->
         </div>
         <!-- Collapsible wrapper -->
     </div>
@@ -61,8 +67,11 @@
                     <td>{{fooditem.lunchbox.institute.address}}</td>
                     <td>
                         <!-- <button type="button" class="btn-"></button> -->
-                        <a class="btn btn-primary" style="background-color: #55acee;"
-                            (click)="$event.preventDefault();confirmPickup(fooditem);" role="button">Pickup</a>
+                        <a *ngIf="fooditem.confirm">Item has been confirmed for pickup by
+                            <strong>{{fooditem.ngoname}}</strong> </a>
+                        <button *ngIf="!fooditem.confirm" class="btn btn-primary" style="background-color: #55acee;"
+                            (click)="$event.preventDefault();fooditem.confirm=true;confirmPickup(fooditem);"
+                            role="button">Pickup</button>
                     </td>
                     <!-- <td>
                         <button type="button" class="btn btn-link btn-sm btn-rounded" (click)="getAllFooditem()">

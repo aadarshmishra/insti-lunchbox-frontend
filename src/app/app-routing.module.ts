@@ -22,9 +22,8 @@ const routes: Routes = [
   { path:'insti-dashboard', component:InstiDashboardComponent, canActivate:[AuthGuard], data: {role:['institute']} },
   { path:'add-lunchbox', component:AddLunchboxComponent, canActivate:[AuthGuard], data: {role:['institute']}},
   { path:'ngo-dashboard', component:NgoDashboardComponent, canActivate:[AuthGuard], data: {role:['ngo']} },
-  { path:'admin-dashboard', component:AdminDashboardComponent, 
+  { path:'admin-dashboard', component:AdminDashboardComponent, canActivate: [AuthGuard], data: {role:['admin']},
   children:[
-
       {path:'admin', component: AdminComponent},
       {path:'admin-institute-users', component: AdminInstituteUsersComponent},
       {path:'admin-ngo-users', component: AdminNgoUsersComponent},

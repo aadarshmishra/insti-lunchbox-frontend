@@ -32,8 +32,10 @@ export class LoginComponent implements OnInit {
         this.userAuthService.setEmail(response.user.email);
         this.userAuthService.setRole(response.user.role);
         this.userAuthService.setToken(response.jwttoken);
+        console.log(response);
         if (response.user.role === "admin") {
           console.log("admin logged in.");
+          this.router.navigateByUrl('admin-dashboard');
         }
         if (response.user.role === "institute") {
           this.instiService.getInstituteByEmail(loginForm.value.email).subscribe(
@@ -51,11 +53,11 @@ export class LoginComponent implements OnInit {
             },
             (error: HttpErrorResponse) => {
               console.log(error);
-              // alert(error.error.message);
+              alert(error.error.message);
             }
           );
         }
-        else if (response.role === 'ngo') {
+        else if (response.user.role === 'ngo') {
           this.ngoService.getNGOByEmail(loginForm.value.email).subscribe(
             (response: Ngo) => {
               if (response.status === 0) {
@@ -77,8 +79,8 @@ export class LoginComponent implements OnInit {
         loginForm.reset();
       },
       (error: HttpErrorResponse) => {
-        alert("Wrong Password.")
-        loginForm.reset;
+        alert("Error Logging in. Please try again.");
+        loginForm.reset();
       }
     );
   }
