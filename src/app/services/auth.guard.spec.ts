@@ -9,5 +9,4 @@ describe('AuthGuard', () => {
     TestBed.configureTestingModule({});
     guard = TestBed.inject(AuthGuard);
   });
-
 });

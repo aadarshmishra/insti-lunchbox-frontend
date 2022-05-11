@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Institute } from 'src/app/interfaces/Institute';
@@ -16,7 +16,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  
   constructor(private userService: UserService,
     private router: Router,
     private instiService: InstituteService,
@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  testemail: string = "";
+  testpass: string = "";
+  
   public validateInstitute(loginForm: NgForm): void {
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {
@@ -83,5 +86,10 @@ export class LoginComponent implements OnInit {
         loginForm.reset();
       }
     );
+  }
+  
+  public testForm(loginForm: NgForm) {
+    this.testemail = loginForm.value.email;
+    this.testpass = loginForm.value.password;
   }
 }
