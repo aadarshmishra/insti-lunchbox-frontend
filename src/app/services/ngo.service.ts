@@ -15,7 +15,7 @@ export class NgoService {
     }
   )
   
-  private apiServerUrl = "http://localhost:8080";
+  private apiServerUrl = "http://localhost:9090";
   
   public addNGO(ngo: Ngo): Observable<Ngo> {
     return this.http.post<Ngo>(`${this.apiServerUrl}/api/ngo/add`,ngo, {headers:this.requestHeaders});

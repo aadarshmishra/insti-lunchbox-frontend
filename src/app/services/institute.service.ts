@@ -10,7 +10,7 @@ export class InstituteService {
 
   constructor(private http : HttpClient) { } 
   
-  private apiServerUrl = "http://localhost:8080";
+  private apiServerUrl = "http://localhost:9090";
   private requestHeaders = new HttpHeaders(
     {
       "No-Auth":"True"

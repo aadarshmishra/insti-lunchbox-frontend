@@ -10,7 +10,7 @@ export class FooditemService {
 
   constructor(private http: HttpClient) { }
   
-  private apiServerUrl = "http://localhost:8080";
+  private apiServerUrl = "http://localhost:9090";
 
   public addFoodItem(fooditem: Fooditem): Observable<Fooditem> {
     return this.http.post<Fooditem>(`${this.apiServerUrl}/api/fooditem`,fooditem);

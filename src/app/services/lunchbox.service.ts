@@ -11,7 +11,7 @@ export class LunchboxService {
 
   constructor(private http: HttpClient) { }
   
-  private apiServerUrl = "http://localhost:8080";
+  private apiServerUrl = "http://localhost:9090";
 
   public addLunchbox(lunchbox: Lunchbox): Observable<Lunchbox> {
     return this.http.post<Lunchbox>(`${this.apiServerUrl}/api/lunchbox`,lunchbox);

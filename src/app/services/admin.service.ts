@@ -10,8 +10,8 @@ export class AdminService {
 
   sendMode(mode: number,id: number ,status: number, ngoId : string){
     if (typeof ngoId !== 'undefined')
-      return this.http.put(`http://localhost:8080/api/ngo/updateStatus/${id}/${mode}`, status);
+      return this.http.put(`http://localhost:9090/api/ngo/updateStatus/${id}/${mode}`, status);
     else
-      return this.http.put(`http://localhost:8080/api/institute/updateStatus/${id}/${mode}`, status);
+      return this.http.put(`http://localhost:9090/api/institute/updateStatus/${id}/${mode}`, status);
   }
 }
