@@ -13,7 +13,7 @@ export class NgoService {
   private apiServerUrl = "http://localhost:8080";
   
   public addNGO(ngo: Ngo): Observable<Ngo> {
-    return this.http.post<Ngo>(`${this.apiServerUrl}/api/ngo`,ngo);
+    return this.http.post<Ngo>(`${this.apiServerUrl}/api/ngo/add`,ngo);
   }
   
   public getNGOByEmail(email: string): Observable<Ngo> {
