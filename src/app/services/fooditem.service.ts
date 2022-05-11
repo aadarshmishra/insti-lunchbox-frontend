@@ -20,7 +20,15 @@ export class FooditemService {
     return this.http.get(`${this.apiServerUrl}/api/fooditem/get`);
   }
   
+  public getAllFoodItemofInsti(email : string) {
+    return this.http.get(`${this.apiServerUrl}/api/fooditem/get/${email}`);
+  }
+  
   public getNGONames() : Observable<any> {
     return this.http.get(`${this.apiServerUrl}/api/fooditem/getNGONames`);
+  }
+  
+  public updateFooditem(fooditem: Fooditem) : Observable<any> {
+    return this.http.put<Fooditem>(`${this.apiServerUrl}/api/fooditem/put`,fooditem);
   }
 }

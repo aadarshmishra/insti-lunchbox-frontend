@@ -8,6 +8,7 @@ import { Lunchbox } from 'src/app/interfaces/Lunchbox';
 import { FooditemService } from 'src/app/services/fooditem.service';
 import { InstituteService } from 'src/app/services/institute.service';
 import { LunchboxService } from 'src/app/services/lunchbox.service';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class AddLunchboxComponent implements OnInit {
   constructor(private fooditemService: FooditemService,
     private instituteService: InstituteService,
     private lunchboxService: LunchboxService,
-    private router: Router) { }
+    private router: Router,
+    private userAuthService : UserAuthService) { }
 
   fooditem: Fooditem = {} as Fooditem;
   lunchbox: Lunchbox = {} as Lunchbox;
@@ -37,7 +39,7 @@ export class AddLunchboxComponent implements OnInit {
     this.fooditem.fqty = addFooditemForm.value.fqty;
     this.fooditem.fremark = addFooditemForm.value.fremark;
     
-    this.instituteService.getInstituteByEmail("a@gmail.com").subscribe({
+    this.instituteService.getInstituteByEmail(this.userAuthService.getEmail()).subscribe({
       next: (response: Institute) => {
         console.log(response);
         this.lunchbox.institute = response;
