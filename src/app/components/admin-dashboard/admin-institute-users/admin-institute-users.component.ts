@@ -96,6 +96,7 @@ export class AdminInstituteUsersComponent implements OnInit {
       this.instiUser.email = updateInstiUser.value.email;
       this.instiUser.address = updateInstiUser.value.address;
       this.instiUser.contact = updateInstiUser.value.contact;
+      this.instiUser.status = 1;
       this.user.email = updateInstiUser.value.email;
       this.user.id = updateInstiUser.value.userId;
       this.user.password = updateInstiUser.value.password;

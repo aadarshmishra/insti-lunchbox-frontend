@@ -1,28 +1,32 @@
 <header>
   <header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
-      <div class="container">
-        <a class="navbar-brand" href="#!"><span style="color: #18af98;">Insti</span><span
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #87e192;">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#!"><span style="color: #ffffff;">Insti</span><span
             style="color: #000000;">Lunchbox</span></a>
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" (click)="basicNavbar.toggle()" aria-expanded="false"
           aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
 
-              <a class="nav-link" href="#!">About Us</a>
-            </li>
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse #basicNavbar="mdbCollapse">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           </ul>
+          <!-- Left links -->
+          <!-- Right links -->
           <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-outline me-3" (click)="goToLogin()">
+            <button type="button" class="btn btn-light btn-rounded me-3" (click)="goToLogin()">
               Login
             </button>
-            <li mdbDropdown class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" mdbDropdownToggle
+            <li mdbDropdown class="nav-item dropdown me-3 mt-0">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" mdbDropdownToggle
                 aria-expanded="false">
                 Signup
               </a>
@@ -36,34 +40,21 @@
               </ul>
             </li>
           </div>
+          <!-- Right links -->
         </div>
+        <!-- Collapsible wrapper -->
       </div>
+      <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
   </header>
-  <div style="margin-top: 50px;">
-    <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
-      <mdb-carousel-item>
-        <img
-          src="https://www.unitedway.org/i/blog/10.15.19_5_Surprising_Facts_about_Hunger_in_America_Blog-reupload.jpg/@zx_1000@zy_500"
-          class="d-block w-100" alt="..." />
-      </mdb-carousel-item>
-      <mdb-carousel-item>
-        <img src="https://images.yourstory.com/cs/wordpress/2017/09/Feeding-India-1.jpg" class="d-block w-100"
-          alt="..." />
-      </mdb-carousel-item>
-    </mdb-carousel>
+  <div style="margin-left: 20px; margin-right: 20px; margin-top: 20px;">
+    <img
+      src="http://www.kanpurwants.com/wp-content/uploads/2019/07/Transparent-Feeding-India-logo-Horizontal-with-Hashtag.png"
+      class="d-block w-100" alt="..." />
   </div>
-  <div class="container-fluid" style="margin-top: 25px;">
-    <figure class="text-center">
-      <blockquote class="blockquote">
-        <h1 class="display-4">
-          Insti Lunchbox
-        </h1>
-      </blockquote>
-    </figure>
-
-    <p class="lead" style="margin-left: auto;">
+  <div class="container-fluid" style="width: 75%; margin-top: 40px;">
+    <p class="lead">
       InstiLunchBox is a solution based system which aims at reducing the hunger at ground level and get food from,
       where it is excess to where it’s a necessity. The main stakeholders are various college/institutes and nearby
       NGOs.

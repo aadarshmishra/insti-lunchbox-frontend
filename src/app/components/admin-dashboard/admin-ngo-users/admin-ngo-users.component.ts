@@ -57,10 +57,10 @@ export class AdminNgoUsersComponent implements OnInit {
       this.ngoUser.address = updateNgoUser.value.address;
       this.ngoUser.contact = updateNgoUser.value.contact;
       this.ngoUser.ngoId = updateNgoUser.value.ngoId;
+      this.ngoUser.status = 1;
       this.user.email = updateNgoUser.value.email;
       this.user.id = updateNgoUser.value.userId;
       this.user.password = updateNgoUser.value.password;
-      this.user.role = "ngo";
       this.ngoUser.user = this.user;
 
       this.serviceNgoUsers.updateNgoUser(this.ngoUser).subscribe(

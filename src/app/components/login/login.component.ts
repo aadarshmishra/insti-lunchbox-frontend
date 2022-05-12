@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Institute } from 'src/app/interfaces/Institute';
 import { Ngo } from 'src/app/interfaces/Ngo';
-import { User } from 'src/app/interfaces/User';
 import { InstituteService } from 'src/app/services/institute.service';
 import { NgoService } from 'src/app/services/ngo.service';
 import { UserAuthService } from 'src/app/services/user-auth.service';
@@ -45,9 +44,11 @@ export class LoginComponent implements OnInit {
             (response: Institute) => {
               if (response.status === 0) {
                 alert("You're not authorized by Admin yet.")
+                this.userAuthService.clear();
               }
               else if (response.status === 2) {
                 alert("You're registration has been denied. Kindly contact admin.")
+                this.userAuthService.clear();
               }
               else if (response.status === 1) {
                 this.router.navigateByUrl('insti-dashboard');
@@ -65,9 +66,11 @@ export class LoginComponent implements OnInit {
             (response: Ngo) => {
               if (response.status === 0) {
                 alert("You're not authorized by Admin yet.")
+                this.userAuthService.clear();
               }
               else if (response.status === 2) {
                 alert("You're registration has been denied. Kindly contact admin.")
+                this.userAuthService.clear();
               }
               else if (response.status === 1) {
                 this.router.navigateByUrl('ngo-dashboard');
