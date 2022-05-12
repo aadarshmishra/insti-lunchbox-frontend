@@ -36,10 +36,5 @@ pipeline {
                 }
             }
         }
-        stage('Ansible Pull and Run Docker Image') {
-            steps {
-                ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, inventory: 'inventory', playbook: 'deploy-img.yml', sudoUser: null
-            }
-        }
     }
 }
